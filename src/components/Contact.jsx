@@ -45,25 +45,25 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="px-12 py-32 relative">
+    <section id="contact" className="px-6 md:px-12 py-20 md:py-32 relative">
       <SectionDivider label="/ / 005 — Контакт" />
 
-      <div className="grid grid-cols-2 gap-24 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
 
         {/* Left */}
         <div>
           <h2 className="font-bebas reveal"
-            style={{ fontSize: 'clamp(3rem, 7vw, 7rem)', lineHeight: 0.9 }}>
+            style={{ fontSize: 'clamp(3rem, 12vw, 7rem)', lineHeight: 0.9 }}>
             ЗВ'ЯЖИСЬ<br />
             <span className="text-red">З НАМИ</span>
           </h2>
 
-          <ul className="list-none mt-12 reveal">
+          <ul className="list-none mt-10 md:mt-12 reveal">
             {socialLinks.map(({ label, key }) => (
               SOCIALS[key] && (
                 <li key={key} style={{ borderBottom: '1px solid rgba(232,228,217,0.08)' }}>
                   <a href={SOCIALS[key]} target="_blank" rel="noopener noreferrer"
-                    className="group flex justify-between items-center py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2">
+                    className="group flex justify-between items-center py-4 md:py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2">
                     {label}
                     <span className="text-xl transition-colors duration-200 group-hover:text-red"
                       style={{ color: 'rgba(232,228,217,0.3)' }}>↗</span>
@@ -74,7 +74,7 @@ export default function Contact() {
 
             <li style={{ borderBottom: '1px solid rgba(232,228,217,0.08)' }}>
               <a href={`mailto:${SOCIALS.email}`}
-                className="group flex justify-between items-center py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2">
+                className="group flex justify-between items-center py-4 md:py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2">
                 {SOCIALS.email}
                 <span className="text-xl transition-colors duration-200 group-hover:text-red"
                   style={{ color: 'rgba(232,228,217,0.3)' }}>↗</span>
@@ -85,7 +85,7 @@ export default function Contact() {
               <a
                 href="tel:+380639250631"
                 onMouseEnter={handlePhoneHover}
-                className="group flex justify-between items-center py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2"
+                className="group flex justify-between items-center py-4 md:py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2"
               >
                 <span className="phone-num">+38 063 925 06 31</span>
                 <span className="text-xl transition-colors duration-200 group-hover:text-red"
@@ -145,7 +145,7 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn-outline">Надіслати →</button>
+              <button type="submit" className="btn-outline w-full md:w-auto">Надіслати →</button>
             </form>
           )}
         </div>

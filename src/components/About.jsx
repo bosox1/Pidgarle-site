@@ -4,13 +4,13 @@ const tags = ['Post-Punk', 'Post-Punk Revival', 'Disco Punk', 'Cold Wave', 'Dark
 
 export default function About() {
   return (
-    <section id="about" className="px-12 py-32 relative">
+    <section id="about" className="px-6 md:px-12 py-20 md:py-32 relative">
       <SectionDivider label="/ / 001 — Про гурт" />
 
-      <div className="grid grid-cols-2 gap-24 items-start max-w-5xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start max-w-5xl">
 
         <div className="font-bebas text-cream reveal"
-          style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: 1, letterSpacing: '0.02em' }}>
+          style={{ fontSize: 'clamp(2rem, 8vw, 4.5rem)', lineHeight: 1, letterSpacing: '0.02em' }}>
           МУЗИКА{' '}
           <span style={{ color: 'transparent', WebkitTextStroke: '1px #c0392b' }}>
             ЯКА РІЖЕ
