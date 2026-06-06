@@ -16,14 +16,33 @@ export default function Contact() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e) => {
-  e.preventDefault()
-  await fetch('https://formspree.io/f/mreveook', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(form)
-  })
-  setSent(true)
-}
+    e.preventDefault()
+    await fetch('https://formspree.io/f/mreveook', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
+    })
+    setSent(true)
+  }
+
+  const handlePhoneHover = (e) => {
+    const el = e.currentTarget.querySelector('.phone-num')
+    const real = '+38 063 925 06 31'
+    const chars = '0123456789'
+    let iter = 0
+    const interval = setInterval(() => {
+      el.innerText = real
+        .split('')
+        .map((ch, i) => {
+          if (ch === ' ') return ' '
+          if (i < iter) return real[i]
+          return chars[Math.floor(Math.random() * chars.length)]
+        })
+        .join('')
+      if (iter >= real.length) clearInterval(interval)
+      iter += 1.5
+    }, 40)
+  }
 
   return (
     <section id="contact" className="px-12 py-32 relative">
@@ -52,6 +71,7 @@ export default function Contact() {
                 </li>
               )
             ))}
+
             <li style={{ borderBottom: '1px solid rgba(232,228,217,0.08)' }}>
               <a href={`mailto:${SOCIALS.email}`}
                 className="group flex justify-between items-center py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2">
@@ -60,10 +80,22 @@ export default function Contact() {
                   style={{ color: 'rgba(232,228,217,0.3)' }}>↗</span>
               </a>
             </li>
+
+            <li style={{ borderBottom: '1px solid rgba(232,228,217,0.08)' }}>
+              <a
+                href="tel:+380639250631"
+                onMouseEnter={handlePhoneHover}
+                className="group flex justify-between items-center py-5 no-underline text-cream text-[0.7rem] tracking-widest uppercase transition-all duration-200 hover:text-red hover:pr-2"
+              >
+                <span className="phone-num">+38 063 925 06 31</span>
+                <span className="text-xl transition-colors duration-200 group-hover:text-red"
+                  style={{ color: 'rgba(232,228,217,0.3)' }}>↗</span>
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* Right — Netlify Form */}
+        {/* Right — Form */}
         <div className="reveal">
           {sent ? (
             <div className="py-16">
@@ -73,16 +105,10 @@ export default function Contact() {
               </p>
             </div>
           ) : (
-            <form
-              name="contact"
-              method="POST"
-              onSubmit={handleSubmit}
-            >
-        
-
+            <form name="contact" method="POST" onSubmit={handleSubmit}>
               {[
-                { name: 'name',    label: "Ім'я / Організація", type: 'text',  placeholder: "Твоє ім'я"         },
-                { name: 'email',   label: 'Email',               type: 'email', placeholder: 'email@example.com' },
+                { name: 'name',  label: "Ім'я / Організація", type: 'text',  placeholder: "Твоє ім'я"         },
+                { name: 'email', label: 'Email',               type: 'email', placeholder: 'email@example.com' },
               ].map((f) => (
                 <div key={f.name} className="mb-6">
                   <label className="block text-[0.6rem] tracking-widest uppercase mb-2"
