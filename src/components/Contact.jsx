@@ -16,11 +16,14 @@ export default function Contact() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const data = new FormData(e.target)
-    await fetch('/', { method: 'POST', body: data })
-    setSent(true)
-  }
+  e.preventDefault()
+  await fetch('https://formspree.io/f/mreveook', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(form)
+  })
+  setSent(true)
+}
 
   return (
     <section id="contact" className="px-12 py-32 relative">
@@ -73,10 +76,9 @@ export default function Contact() {
             <form
               name="contact"
               method="POST"
-              data-netlify="true"
               onSubmit={handleSubmit}
             >
-              <input type="hidden" name="form-name" value="contact" />
+        
 
               {[
                 { name: 'name',    label: "Ім'я / Організація", type: 'text',  placeholder: "Твоє ім'я"         },
