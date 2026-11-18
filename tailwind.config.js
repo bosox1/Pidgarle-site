@@ -12,7 +12,7 @@ export default {
         mid:    '#2e2e2e',
       },
       fontFamily: {
-        bebas: ['"Bebas Neue"', 'sans-serif'],
+        bebas: ['"Bebas Neue"', 'Oswald', 'sans-serif'],
         vt323: ['VT323', 'monospace'],
         mono:  ['"Share Tech Mono"', 'monospace'],
       },

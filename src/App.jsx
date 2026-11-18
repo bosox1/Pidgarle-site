@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Nav     from './components/Nav'
 import Hero    from './components/Hero'
 import Marquee from './components/Marquee'
+import Manifesto from './components/Manifesto'
 import About   from './components/About'
 import Members from './components/Members'
 import Shows   from './components/Shows'
@@ -19,6 +20,7 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
+        <Manifesto />
         <About />
         <Members />
         <Shows />

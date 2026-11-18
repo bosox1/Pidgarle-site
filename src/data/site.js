@@ -54,3 +54,14 @@ export const SOCIALS = {
   youtube:   null,
   email:     'pidgarle@gmail.com',
 }
+
+// Слоган-маніфест (блок між Marquee і About)
+export const MANIFESTO = {
+  subject: 'Підґарлє',
+  lines: [
+    { lead: 'не',   text: 'худне,' },
+    { lead: 'не',   text: 'продається' },
+    { lead: 'і не', text: 'просить' },
+  ],
+  finale: 'дозволу.',
+}
